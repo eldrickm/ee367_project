@@ -4,6 +4,7 @@
 
 [eldrickm](https://github.com/eldrickm)
 
+You can contact me at: eldrickmillares at gmail dot com
 
 ## Table of Contents
 

@@ -17,8 +17,11 @@ import camera_tools.realsense as rs
 import camera_tools.fullscreen.fullscreen as fs
 from simulate_blur import filter_rgb
 
+# Size of the tiles to break up the image
 TILE_SCALE = 120
+# Estimated Gaussian kernel dimensions
 E_PSF_DIMENSIONS = (8, 8)
+# Factor to multiply the offsets from focal plane to yield sigma
 BLUR_DEPTH_COEFFICIENT = 1 / 120
 
 FOCAL_DEPTH_FILE = 'etc/focal_depth.npy'
