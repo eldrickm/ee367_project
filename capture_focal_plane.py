@@ -23,9 +23,8 @@ PERSPECTIVE_FILE = 'camera_tools/etc/perspective.json'
 # Load Camera Calibration and Perspective Calibration Files
 camera_matrix, dist_coeffs = calibrate.load_camera_props(PROP_FILE)
 mapx, mapy = calibrate.get_undistort_maps(camera_matrix, dist_coeffs)
-m, max_width, max_height = perspective.load_perspective(PERSPECTIVE_FILE) 
+m, max_width, max_height = perspective.load_perspective(PERSPECTIVE_FILE)
 
-# Task 1: Capture Registered RGBD Data
 stream = rs.RealSenseCamera()
 
 color, depth = stream.read_rgbd()
@@ -46,13 +45,10 @@ plt.title("Focal Plane - RGB")
 plt.axis('off')
 plt.savefig('fig/focal_rgb.png', dpi=100, bbox_inches='tight')
 
-
 plt.figure()
 plt.imshow(depth)
 plt.title("Focal Plane - Depth")
 plt.axis('off')
 plt.savefig('fig/focal_depth.png', dpi=100, bbox_inches='tight')
-
-
 
 np.save(FOCAL_DEPTH_FILE, depth)

@@ -14,7 +14,7 @@ from fspecial import fspecial_gaussian_2d
 import camera_tools.calibrate as calibrate
 import camera_tools.perspective as perspective
 import camera_tools.realsense as rs
-import fullscreen.fullscreen as fs
+import camera_tools.fullscreen.fullscreen as fs
 from simulate_blur import filter_rgb
 
 TILE_SCALE = 120
@@ -94,43 +94,43 @@ while True:
         break
 
     # Uncomment below to save a single shot image
-    plt.figure(figsize=(30, 30))
-    plt.imshow(color)
-    plt.title('RGB Image of Scene')
-    plt.axis('off')
-    plt.savefig('fig/rgb_image.png', dpi=100, bbox_inches='tight')
-
-    plt.figure(figsize=(30, 30))
-    plt.imshow(depth)
-    plt.title('Depth Image of Scene')
-    plt.axis('off')
-    plt.savefig('fig/depth_image.png', dpi=100, bbox_inches='tight')
-    
-    plt.figure(figsize=(30, 30))
-    plt.imshow(focal_offsets)
-    plt.title('Offsets from Focal Plane')
-    plt.savefig('fig/offsets.png', dpi=100, bbox_inches='tight')
-
-    plt.figure(figsize=(30, 30))
-    plt.imshow(tile_sigmas)
-    plt.title('Per-Tile Sigmas')
-    plt.savefig('fig/sigmas.png')
-
-    plt.figure(figsize=(30, 30))
-    plt.imshow(precond)
-    plt.title('Preconditioned Image')
-    plt.savefig('fig/precond.png', dpi=100, bbox_inches='tight')
-
-    color, depth = stream.read_rgbd()
-    color = calibrate.undistort_image(color, mapx, mapy)
-    color = cv2.warpPerspective(color, m, (max_width, max_height))
-    color = cv2.resize(color, rs.COLOR_RESOLUTION)
-    plt.figure(figsize=(30, 30))
-    plt.imshow(color)
-    plt.title('Projected Pre-Conditioned Image')
-    plt.axis('off')
-    plt.savefig('fig/projected.png', dpi=100, bbox_inches='tight')
-    break
+    #  plt.figure(figsize=(30, 30))
+    #  plt.imshow(color)
+    #  plt.title('RGB Image of Scene')
+    #  plt.axis('off')
+    #  plt.savefig('fig/rgb_image.png', dpi=100, bbox_inches='tight')
+    #
+    #  plt.figure(figsize=(30, 30))
+    #  plt.imshow(depth)
+    #  plt.title('Depth Image of Scene')
+    #  plt.axis('off')
+    #  plt.savefig('fig/depth_image.png', dpi=100, bbox_inches='tight')
+    #
+    #  plt.figure(figsize=(30, 30))
+    #  plt.imshow(focal_offsets)
+    #  plt.title('Offsets from Focal Plane')
+    #  plt.savefig('fig/offsets.png', dpi=100, bbox_inches='tight')
+    #
+    #  plt.figure(figsize=(30, 30))
+    #  plt.imshow(tile_sigmas)
+    #  plt.title('Per-Tile Sigmas')
+    #  plt.savefig('fig/sigmas.png')
+    #
+    #  plt.figure(figsize=(30, 30))
+    #  plt.imshow(precond)
+    #  plt.title('Preconditioned Image')
+    #  plt.savefig('fig/precond.png', dpi=100, bbox_inches='tight')
+    #
+    #  color, depth = stream.read_rgbd()
+    #  color = calibrate.undistort_image(color, mapx, mapy)
+    #  color = cv2.warpPerspective(color, m, (max_width, max_height))
+    #  color = cv2.resize(color, rs.COLOR_RESOLUTION)
+    #  plt.figure(figsize=(30, 30))
+    #  plt.imshow(color)
+    #  plt.title('Projected Pre-Conditioned Image')
+    #  plt.axis('off')
+    #  plt.savefig('fig/projected.png', dpi=100, bbox_inches='tight')
+    #  break
     
 
 cv2.destroyAllWindows()

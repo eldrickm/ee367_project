@@ -12,7 +12,7 @@ from numpy.fft import fft2, ifft2
 from pypher.pypher import psf2otf
 from skimage.metrics import peak_signal_noise_ratio as compute_psnr
 from fspecial import fspecial_gaussian_2d
-import fullscreen.fullscreen as fs
+import camera_tools.fullscreen.fullscreen as fs
 
 # Key bindings to display different images on projector
 QUIT_KEY = 'q'
